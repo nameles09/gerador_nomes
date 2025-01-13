@@ -8,12 +8,12 @@ export default function Navbar({ setPage }) {
   };
 
   return (
-    <nav>
+    <nav className="navbar">
       <div className="logo">Gerador de Nomes</div>
-      <div className={`menu ${isOpen ? "active" : ""}`} onClick={toggleMenu}>
-        <a href="./componentes/nomes.js" onClick={() => setPage("adicionar-nome")}>Adicionar Nome</a>
-        <a href="./componentes/apelidos.js" onClick={() => setPage("adicionar-apelido")}>Adicionar Apelido</a>
-        <a href="./componentes/GerarNomes.js" onClick={() => setPage("gerar-nomes")}>Gerar Nomes</a>
+      <div className={`menu ${isOpen ? "active" : ""}`}>
+        <a href="#" onClick={() => {setPage("adicionar-nome"); toggleMenu();}}>Adicionar Nome</a>
+        <a href="#" onClick={() => {setPage("adicionar-apelido"); toggleMenu();}}>Adicionar Apelido</a>
+        <a href="#" onClick={() => {setPage("gerar-nomes"); toggleMenu();}}>Gerar Nomes</a>
       </div>
       <div className={`menu-icon ${isOpen ? "active" : ""}`} onClick={toggleMenu}>
         <div></div>
