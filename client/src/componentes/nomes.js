@@ -14,7 +14,11 @@ export default function Nomes() {
         body: JSON.stringify({ nome }),
       });
 
+<<<<<<< HEAD
       if (response.status === 201) {
+=======
+      if (response.ok) {
+>>>>>>> 4f0a8fd7d03271bb9246df18b80c436bbfeb4ac1
         setNome("");
         alert("Nome adicionado com sucesso!");
       } else {
