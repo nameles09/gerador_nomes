@@ -1,12 +1,46 @@
-/* NavBar.css */
+:root {
+  --dark: #050608;
+  --light: #ffffff;
+  --primary: #d43132;
+  --font: 'Inter', Arial, Helvetica, sans-serif;
+  --rounded: 100vw;
+}
 
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: var(--dark);
+  font-family: var(--font);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+* {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: var(--light);
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+/* NavBar CSS */
 .navbar {
   background-color: #282c34;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .menu {
@@ -17,7 +51,7 @@
 }
 
 .menu-icon {
-  display: none;
+  display: flex;
   flex-direction: column;
   cursor: pointer;
 }
@@ -66,15 +100,169 @@
     padding: 10px 0;
   }
 
-  .menu a {
-    margin: 10px 0;
-  }
-
   .menu.active {
     display: flex;
   }
 
-  .menu-icon {
-    display: flex;
+  .menu a {
+    margin: 10px 0;
   }
+}
+
+/* Button and Input Style */
+button, .awesome, input[type="text"] {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  border-radius: var(--rounded);
+  margin: 20px 0;
+  padding: .7rem 1rem .8rem 2rem;
+  display: inline-flex;
+  background: none;
+  color: var(--light);
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+
+button::before, .awesome::before, input[type="text"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--rounded);
+  background-image: linear-gradient(
+    -45deg, 
+    var(--primary), 
+    transparent 50%
+  );
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: 
+    transform .4s cubic-bezier(0.25, 0, 0.75, 1), 
+    opacity 1s ease;
+}
+
+button::after, .awesome::after, input[type="text"]::after {
+  content: '❯';
+  display: grid;
+  place-items: center;
+  height: 1em;
+  width: 1em;
+  padding: 4px;
+  margin-left: .65rem;
+  border-radius: var(--rounded);
+  background: var(--primary);
+  color: var (--dark);
+  font-size: .75em;
+  line-height: 0;
+  transform: translateY(2px);
+  transition: background-color .25s ease .25s;
+}
+
+button:hover::before, .awesome:hover::before, input[type="text"]:hover::before {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+button:hover::after, .awesome:hover::after, input[type="text"]:hover::after {
+  background: var(--light);
+  /* color: var(--primary); */
+}
+
+/* Style for text input fields to keep them white */
+input[type="text"] {
+  background: var(--light);
+  padding: 10px;
+  border-radius: var(--rounded);
+  color: var(--dark);
+  font-size: 16px;
+  border: 1px solid var(--primary);
+  margin: 10px 0;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap);
+
+:root {
+  --dark: #050608;
+  --light: #ffffff;
+  --primary: #d13243;
+  --font: 'Inter', Arial, Helvetica, sans-serif;
+  --rounded: 100vw;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: var(--dark);
+  font-family: var(--font);
+  box-sizing: border-box;
+  text-align: center;
+  perspective: 1000px;
+}
+
+* {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+/* Container */
+.container {
+  text-align: center;
+}
+
+h1,
+.page-title {
+  color: rgb(255, 255, 255);
+  font-size: 3.5rem;
+  line-height: 80%;
+  transform: rotateX(0) rotateY(-25deg);
+  text-transform: uppercase;
+  width: 500px;
+  text-align: center;
+  font-family: 'Abril Fatface';
+  margin: 3rem auto;
+  position: relative;
+  padding: 2rem 0 9rem;
+  text-shadow: 0 0 5px #d13243,0 0 10px #d13243,0 0 15px #d13243,0 0 20px #228dff,0 0 35px #d13243,0 0 40px #228dff;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, to {
+    transform: translateZ(-2px) translateY(5px);
+  }
+  40% {
+    transform: rotateY(180deg) translateZ(-2px) translateY(-35px);
+  }
+  60% {
+    transform: translateZ(-2px) translateY(-25px);
+  }
+}
+
+.scroll-more {
+  color: rgb(119, 35, 35);
+  text-align: center;
+  width: 450px;
+  position: absolute;
+  bottom: 8rem;
+  left: calc(50% - 225px);
+  margin: 0 auto;
+  font-size: 25px;
+  opacity: 1;
+  transition: opacity .3s ease;
+  font-family: monospace;
+  pointer-events: none;
+  z-index: -1;
+  transform-origin: center;
+  -webkit-animation: bounce 3s cubic-bezier(.37,0,.21,1.02) infinite,fonts 5s linear infinite;
+  animation: bounce 3s cubic-bezier(.37,0,.21,1.02) infinite,fonts 5s linear infinite;
+}
+
+.nomecompleto {
+  color:#d43132
 }

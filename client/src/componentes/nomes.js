@@ -6,7 +6,7 @@ export default function Nomes() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/API/nomes", {
+      const response = await fetch("http://localhost:5000/API/nomes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export default function Nomes() {
         body: JSON.stringify({ nome }),
       });
 
-      if (response === 201) {
+      if (response.status === 201) {
         setNome("");
         alert("Nome adicionado com sucesso!");
       } else {

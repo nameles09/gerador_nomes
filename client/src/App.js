@@ -4,10 +4,10 @@ import Apelidos from "./componentes/apelidos";
 import GerarNomes from "./componentes/GerarNomes";
 import Navbar from "./componentes/NavBar";
 import Nomes from "./componentes/nomes";
-import logo from "./logo.svg";
+
 
 function App() {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState("adicionar-nome");
 
   const renderContent = () => {
     switch (page) {
@@ -18,28 +18,14 @@ function App() {
       case "gerar-nomes":
         return <GerarNomes />;
       default:
-        return (
-          <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <p>
-                Edit <code>src/App.js</code> and save to reload.
-              </p>
-              <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                Learn React
-              </a>
-            </header>
-          </div>
-        );
+        return <div className="App"></div>;
     }
   };
 
   return (
     <div>
       <Navbar setPage={setPage} />
-      <div className="container">
-        {renderContent()}
-      </div>
+      <div className="container">{renderContent()}</div>
     </div>
   );
 }
