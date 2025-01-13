@@ -6,20 +6,13 @@ export default function GerarNomes() {
   const [nomeCompleto, setNomeCompleto] = useState("");
 
   useEffect(() => {
-<<<<<<< HEAD
-=======
-    // Fetch nomes
->>>>>>> 4f0a8fd7d03271bb9246df18b80c436bbfeb4ac1
     const fetchNomes = async () => {
       const response = await fetch("http://localhost:5000/API/nomes");
       const data = await response.json();
       setNomes(data);
     };
 
-<<<<<<< HEAD
-=======
     // Fetch apelidos
->>>>>>> 4f0a8fd7d03271bb9246df18b80c436bbfeb4ac1
     const fetchApelidos = async () => {
       const response = await fetch("http://localhost:5000/API/apelidos");
       const data = await response.json();

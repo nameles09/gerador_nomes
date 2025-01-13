@@ -18,7 +18,8 @@ export default function Apelidos() {
         setApelido("");
         alert("Apelido adicionado com sucesso!");
       } else {
-        alert("Erro ao adicionar apelido");
+        const data = await response.json();
+        alert(data.message);
       }
     } catch (error) {
       alert("Erro ao adicionar apelido");
